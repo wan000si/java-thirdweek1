@@ -14,20 +14,16 @@ public class Filter {
     List<Integer>  array;
 
     public Filter(List<Integer> array) {
-        int even=1;
-        this.array=Helper.getArrayOfIndex(array,even);
-        //this.array = array;
+        this.array = array;
     }
 
     public List<Integer> filterEven() {
-        List<Integer> list =new ArrayList<Integer>();
-        return list.stream().filter(i ->i%3==0).collect(Collectors.toList());
+        return array.stream().filter(i->i%2==0).collect(Collectors.toList());
         //throw new NotImplementedException();
     }
 
     public List<Integer> filterMultipleOfThree() {
-        List<Integer> list =new ArrayList<Integer>();
-        return list.stream().distinct().collect(Collectors.toList());
+        return array.stream().filter(i ->i%3==0).collect(Collectors.toList());
         //throw new NotImplementedException();
     }
 
@@ -37,10 +33,7 @@ public class Filter {
     }
 
     public List<Integer> getDifferentElements() {
-        List<Integer> firstList =new ArrayList<Integer>();
-        List<Integer> secondList =new ArrayList<Integer>();
-        firstList.removeAll(secondList);
-        return firstList;
+        return array.stream().distinct().collect(Collectors.toList());
         //throw new NotImplementedException();
     }
 }
