@@ -9,12 +9,14 @@ import java.util.stream.Collectors;
 public class Add {
     public int getSumOfEvens(int leftBorder, int rightBorder) {
         int evens = 1;
+        //System.out.println(Helper.getSumOfInt(leftBorder,rightBorder,evens));
         return Helper.getSumOfInt(leftBorder,rightBorder,evens);
        // throw new NotImplementedException();
     }
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
         int  odds= 0;
+        System.out.println(Helper.getSumOfInt(leftBorder,rightBorder,odds));
         return Helper.getSumOfInt(leftBorder, rightBorder, odds);
         //throw new NotImplementedException();
     }

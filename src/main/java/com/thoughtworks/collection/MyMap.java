@@ -18,24 +18,28 @@ public class MyMap {
 
     public List<Integer> getTriple() {
         //List<Integer> list=new ArrayList<>();
-
-        return array.stream().map(var->{var++;var*=3;return var;}).collect(Collectors.toList());
+        return array.stream().map(var->{var*=3;return var;}).collect(Collectors.toList());
         //throw new NotImplementedException();
     }
 
     public List<String> mapLetter() {
         List<String > list=new ArrayList<>();
-        array.stream().map(var->{var++;var+='a'-1;return var;}).forEach(i->list.add(String.valueOf(i)));
+        array.stream().map(var->letterList.get(var-1)).forEach(i->list.add(String.valueOf(i)));
         return list;
         //throw new NotImplementedException();
     }
 
     public List<String> mapLetters() {
-        List<String > list=new ArrayList<>();
-        array.stream().map(var->
-            {var++;return String.valueOf(var/26+'a'-1)+String.valueOf(var%26+'a'-1);})
-                .forEach(i->list.add(String.valueOf(i)));
-        return list;
+        List<String> list=new ArrayList<>();
+//        array.stream().map(var->
+//            {var++;return String.valueOf(var/26+'a'-1)+String.valueOf(var%26+'a'-1);})
+//                .forEach(i->list.add(String.valueOf(i)));
+        array.stream().map(var->{
+                    if (var>=26) {
+                        return letterList.get((var-1)/26-1)+letterList.get((var-1)%26);
+                    }else return letterList.get(var-1);})
+                .forEach(list::add);
+       return list;
         //throw new NotImplementedException();
     }
 

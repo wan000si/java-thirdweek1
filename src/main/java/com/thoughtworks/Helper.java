@@ -4,10 +4,17 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Helper {
+
     public static int getSumOfInt(int leftBorder, int rightBorder, int theTpye) {
-        int sum=0;
+        int sum = 0;
+        if (leftBorder > rightBorder) {
+           int temp=leftBorder;
+           leftBorder=rightBorder;
+           rightBorder=temp;
+        }
         for (int i = leftBorder; i <= rightBorder ; i++) {
             if (theTpye == 1) {
                 if (i % 2 == 0) {
@@ -18,8 +25,8 @@ public class Helper {
                     sum+=i;
                 }
             }
-            }
-            return sum;
+        }
+        return sum;
     }
     public static int getSumOfArrayAdd3(List<Integer> arrayList) {
         int sumOfArray = 0;
@@ -51,13 +58,13 @@ public class Helper {
     public static List<Integer> getProcessedList(List<Integer> arrayList) {
         List<Integer> list = new ArrayList<Integer>();
         for (int i = 0; i < arrayList.size() - 1; i++) {
-            list.add(arrayList.get(i)+arrayList.get(i+1));
+            list.add((arrayList.get(i)+arrayList.get(i+1))*3);
         }
         return list;
     }
     public static List<Integer> getArrayOfIndex(List<Integer> arrayList,int theType) {
         List<Integer> list = new ArrayList<Integer>();
-        for (int i : arrayList) {
+        for (Integer i : arrayList) {
             if (theType == 1) {
                 if (i % 2 == 0) {
                     list.add(i);
@@ -78,5 +85,23 @@ public class Helper {
             sumOfArray+=i;
         }
         return sumOfArray;
+    }
+    public static List<Integer> getList(int left,int right) {
+        List<Integer> list= new ArrayList<Integer>();
+        if (left < right) {
+            for (int i = left; i <= right; i++) {
+                list.add(i);
+            }
+        } else {
+            for (int i = left; i >=right ; i--) {
+                list.add(i);
+            }
+        }
+        return list;
+    }
+    public static List<Integer> popCommonElement(List<Integer> firstArray, List<Integer> secondArray) {
+        return firstArray.stream()
+                .filter(item -> secondArray.contains(item))
+                .collect(Collectors.toList());
     }
 }
