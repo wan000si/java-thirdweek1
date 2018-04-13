@@ -57,17 +57,17 @@ public class CollectionOperator {
     public List<Integer> addUncommonElement(Integer[] firstArray, Integer[] secondArray) {
 //        List<Integer> listFS = Helper.popCommonElement( Arrays.asList(firstArray), Arrays.asList(secondArray));
 //        System.out.println(listFS);
-        System.out.println(Arrays.asList(secondArray));
+ //       System.out.println(Arrays.asList(secondArray));
         List<Integer> list=Arrays.stream(secondArray).filter(i->!Arrays.asList(firstArray)
                 .contains(i)).collect(Collectors.toList());
-        System.out.println(list);
+//        System.out.println(list);
 //        List<Integer> result = Arrays.asList(firstArray);
         List<Integer> result =new ArrayList<>();
         result.addAll(Arrays.asList(firstArray));
         result.addAll(list);
-        System.out.println(result);
+//        System.out.println(result);
 //        result.addAll(list);
-        System.out.println(result);
+//        System.out.println(result);
         return result;
 //        List<Integer> first = Arrays.asList(firstArray);
 //        List<Integer> second = Arrays.asList(secondArray);

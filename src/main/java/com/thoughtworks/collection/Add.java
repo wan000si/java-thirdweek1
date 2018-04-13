@@ -16,7 +16,7 @@ public class Add {
 
     public int getSumOfOdds(int leftBorder, int rightBorder) {
         int  odds= 0;
-        System.out.println(Helper.getSumOfInt(leftBorder,rightBorder,odds));
+//        System.out.println(Helper.getSumOfInt(leftBorder,rightBorder,odds));
         return Helper.getSumOfInt(leftBorder, rightBorder, odds);
         //throw new NotImplementedException();
     }
